@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span class="zm-help none">搜索</span>
                 </li>
                     <li class="user" id="zm-user" style="padding: 35px 0px 43px;">
-                        <a class="zm-personImg" href="#"><span><img src="<%=request.getContextPath() %>/upload/<%=user.getImage()%>" style="padding: 0px; margin-top: 4px;"></span></a>
+                        <a class="zm-personImg" href="#"><span><img src="<%=request.getContextPath() %>/img/<%=user.getImage()%>" style="padding: 0px; margin-top: 4px;"></span></a>
                         <ul class="user-data" style="top: 98px;">
                             <li style="padding: 0px;"><a href="set.html" onclick="sessionStorage.setItem('TAB', 0);">个人设置</a></li>
                             <li style="padding: 0px;"><a href="relationship.jsp">我的关系</a></li>

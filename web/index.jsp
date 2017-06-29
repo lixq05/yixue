@@ -159,7 +159,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 					<li class="user" id="zm-user" style="padding: 35px 0px 43px;">
 
-						<a class="zm-personImg" href="http://iriding.cc/user/w4tjIoc9CaFM"><span><img src="<%=request.getContextPath() %>/upload/<%=user.getImage()%>" style="padding: 0;margin-top: 4px;"></span></a>
+						<a class="zm-personImg" href="http://iriding.cc/user/w4tjIoc9CaFM"><span><img src="<%=request.getContextPath() %>/img/<%=user.getImage()%>" style="padding: 0;margin-top: 4px;"></span></a>
 
 						<ul class="user-data" style="top: 98px;">
 							<li style="padding: 0px;">
@@ -850,7 +850,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span class="loggedImg">
                         <a href="http://iriding.cc/user/w4tjIoc9CaFM" target="_blank">
                               
-                                 <a href="set.jsp"><img src="<%=request.getContextPath() %>/upload/<%=user.getImage()%>"></a>
+                                 <a href="set.jsp"><img src="<%=request.getContextPath() %>/img/<%=user.getImage()%>"></a>
                               
                         </a>
                         </span>

@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li class="user" id="zm-user" style="padding: 35px 0px 43px;">
 
 
-                        <a class="zm-personImg" href="set.jsp" style="color: rgb(176, 176, 176);"><span><img src="<%=request.getContextPath() %>/upload/<%=user.getImage()%>" style="padding: 0;margin-top: 4px;"></span></a>
+                        <a class="zm-personImg" href="set.jsp" style="color: rgb(176, 176, 176);"><span><img src="<%=request.getContextPath() %>/img/<%=user.getImage()%>" style="padding: 0;margin-top: 4px;"></span></a>
 
                         <ul class="user-data" style="top: 98px; display: none;">
                             

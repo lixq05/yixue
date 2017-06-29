@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="user" id="zm-user" style="padding: 8px 0px 18px;">
 
 						<a class="zm-personImg" href="#"><span>
-							<img src="<%=request.getContextPath() %>/upload/<%=user.getImage()%>" style="padding: 0px; margin-top: 4px;"></span></a>
+							<img src="<%=request.getContextPath() %>/img/<%=user.getImage()%>" style="padding: 0px; margin-top: 4px;"></span></a>
 
 						<ul class="user-data" style="top: 42px;">
 							<li style="padding: 0px;">

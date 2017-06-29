@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- saved from url=(0113)https://passport.iriding.cc/register/index?next_page=/sso/login?from=http://iriding.cc/sso/login?from=/community/ -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+        <title>逸学-注册</title>
+        <link rel="shortcut icon" href="img/faviconv2.ico" type="image/x-icon">
+        <link rel="icon" href="img/faviconv2.ico" type="image/x-icon">    
+        <link rel="stylesheet" href="css/public.css">
+        <link rel="stylesheet" href="css/basic.css">
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js.下载"></script>
+       
+        <script type="text/javascript" src="js/pub_utils.js.下载"></script>  
+        <script src="js/newfile.js"></script>   
+
+
+</head>
+    <body style="position: static;">
+    <header>
+        <div class="header-honor">
+            <div class="honor-logo">
+                <a><img style="height: 50px;" src="img/logo.png"></a>
+            </div>
+        </div>
+    </header>
+    <section class="login-main">
+        <h2>立即注册</h2>
+
+        <div class="register-data">
+            <input type="hidden" name="next_page" id="next_page" value="/sso/login%3Ffrom%3Dhttp%3A//iriding.cc/sso/login%3Ffrom%3D/community/">
+			<form action="register" method="post">
+			
+             
+            <p>
+                <i><img src="img/name-s.jpg"></i>
+                <input type="text" placeholder="请输入用户名" name="username" id="username">
+                <label id="username-text" class="onError"></label>
+            </p>
+             <p>
+                <i><img src="img/lock-s.png"></i>
+                <input type="password" placeholder="请输入密码" name="upsw" id="password">
+                <label id="pass-text" class="onError"></label>
+            </p>
+            
+            <p>
+                <i><img src="img/phone-s.png"></i>
+                <input type="text" placeholder="请输入邮箱" name="email" id="phone">
+                <label id="phone-text" class="onError"></label>
+            </p>
+
+          
+
+            <p>
+                <i><img src="img/lock-s.png"></i>
+                <input type="password" placeholder="再次输入密码" name="userPsw1" id="repassword">
+                <label id="repass-text" class="onError"></label>
+            </p>
+
+
+            <div class="login-str regis-str">
+               <a><input type="submit" value="注册" id="aRegister" style="background-color:transparent;border-style:none;"></a>
+            </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-er">
+            <div class="footer-dex">
+                <div class="footer-p">
+                    <p>@联系我们</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function footerSet() {
+                var offsetTop = $(window).height();
+                var bodyH = $("body").height();
+                if (offsetTop < bodyH) {
+                    $("body").css("position", "relative");
+                } else {
+                    $("body").css("position", "static");
+                }
+            }
+
+            footerSet();
+            $(window).resize(function () {
+                footerSet();
+            })
+        });
+    </script>
+
+
+    <script language="javascript" type="text/javascript">
+        /**
+         * Check email format
+         */
+        function emailCheck(email) {
+            var pattern = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+            if (!pattern.test(email)) {
+                return false;
+            }
+            return true;
+        }
+
+        function doSubmit() {
+
+            if ($("#aRegister").is(".disabled")) {
+                return false;
+            }
+            var email = $("#phone").val();
+            var password = $("#password").val();
+            var re_password = $("#repassword").val();
+            if (!email) {
+                return;
+            }
+
+            var next = $("#next_page").val();
+            if (!emailCheck(email)) {
+                return;
+            }
+
+            if (!password || !re_password || (password != re_password)) {
+                return;
+            }
+            $("#aRegister").addClass("disabled");
+            $.ajax({
+                url: "/register/account",
+                data: {email: email, password: password, from: next},
+                type: "POST",
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        $("#phone").val("");
+                        $("#password").val("");
+                        $("#repassword").val("");
+                        $("#aRegister").removeClass("disabled")
+                        if (data.url) {
+                            window.location.href = data.url;
+                        }
+                        return;
+                    } else {
+                        $("#aRegister").removeClass("disabled")
+                        alert(data.message);
+                        return;
+                    }
+                },
+                error: function (er) {
+                    $("#aRegister").removeClass("disabled")
+                    alert(er.message);
+                    return;
+                }
+            });
+
+        }
+    </script>
+</body></html>

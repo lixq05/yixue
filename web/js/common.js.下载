@@ -1,0 +1,177 @@
+/**
+ * Created by peng on 15/1/22.
+ */
+
+function show_detail(live_id) {
+
+
+    var url = "/user/zbtcajax?live_id=" + live_id;
+
+    if ($('.fancybox-overlay').length > 1) {
+        jQuery.fancybox.close(false, function () {
+            $.fancybox.open({
+                maxWidth: 1000,
+                fitToView: false,
+                width: '1000',
+                top: 0,
+                autoSize: false,
+                autoHeight: true,
+                autoCenter: false,
+                type: 'ajax',
+                href: url,
+                closeBtn: true,
+                openEffect: 'none',
+                closeEffect: 'none',
+                topRatio: 0,
+                wrapCSS: 'fancybox-wrap-empty'
+            });
+        });
+
+    } else {
+        $.fancybox.open({
+            maxWidth: 1000,
+            fitToView: false,
+            width: '1000',
+            top: 0,
+            autoSize: false,
+            autoHeight: true,
+            autoCenter: false,
+            type: 'ajax',
+            href: url,
+            closeBtn: true,
+            openEffect: 'none',
+            closeEffect: 'none',
+            topRatio: 0,
+            wrapCSS: 'fancybox-wrap-empty'
+        });
+    }
+}
+
+
+function goTop(acceleration, time) {
+    acceleration = acceleration || 0.1;
+    time = time || 16;
+
+    var x1 = 0;
+    var y1 = 0;
+    var x2 = 0;
+    var y2 = 0;
+    var x3 = 0;
+    var y3 = 0;
+
+    if (document.documentElement) {
+        x1 = document.documentElement.scrollLeft || 0;
+        y1 = document.documentElement.scrollTop || 0;
+    }
+    if (document.body) {
+        x2 = document.body.scrollLeft || 0;
+        y2 = document.body.scrollTop || 0;
+    }
+    var x3 = window.scrollX || 0;
+    var y3 = window.scrollY || 0;
+
+    var x = Math.max(x1, Math.max(x2, x3));
+    var y = Math.max(y1, Math.max(y2, y3));
+
+    var speed = 1 + acceleration;
+    window.scrollTo(Math.floor(x / speed), Math.floor(y / speed));
+
+    if (x > 0 || y > 0) {
+        var invokeFunction = "goTop(" + acceleration + ", " + time + ")";
+        window.setTimeout(invokeFunction, time);
+    }
+}
+
+
+function doLivePraise(live_id, type, flag) {
+    if (flag == 0) {
+        html_str = '<i class="icon-good"></i>';
+    } else {
+        html_str = '<i class="icon-good-cancel"></i>';
+    }
+
+    $.ajax({
+        cache: true,
+        type: "POST",
+        url: "/live/updateLivePraise",
+        data: {"lid": live_id, "flag": flag},
+        success: function (data) {
+            if (data.rlt == '1') {
+                 var html_str = '';
+             if (type=='live'){
+                if (flag == 0) {
+                    html_str =
+                        '<i class="icon-good"></i>' + data.count;
+
+                    $("#praiseHref" + live_id).attr("href", "javascript:doLivePraise('" + live_id + "','live','1')");
+
+                } else {
+                    html_str =
+                        '<i class="icon-good-on"></i>' + data.count;
+
+                    $("#praiseHref" + live_id).attr("href", "javascript:doLivePraise('" + live_id + "','live','0')");
+                }
+                 $("#praiseHref" + live_id).html(html_str);
+            }  else if (type == 'detail' || type == 'top') {
+
+                    if (flag == 0) {
+                        html_str = '<a href="javascript:doLivePraise(\'' + live_id + '\',\'detail\',\'1\')" ' +
+                            'class="btn btn-default btn-lg"><i class="icon-good"></i>' + data.count + '</a>';
+
+                        $("#top_praise_href").attr("href", "javascript:doLivePraise('" + live_id + "','top','1')");
+                        $("#top_praise_href").attr("class", "link-like");
+
+                    } else {
+                        html_str = '<a href="javascript:doLivePraise(\'' + live_id + '\',\'detail\',\'0\')" ' +
+                            ' class="btn btn-default btn-lg"><i class="icon-cancel-good"></i>' + data.count + '</a>';
+                        $("#top_praise_href").attr("href", "javascript:doLivePraise('" + live_id + "','top','0')");
+                        $("#top_praise_href").attr("class", "link-liked");
+
+                    }
+                    $('#praiseLogoDiv').html(html_str);
+                 refreshPraiseUserList(live_id);
+            }
+            }
+            else {
+                window.location.href = "/"
+            }
+        }
+    });
+}
+
+
+
+function refreshPraiseUserList(live_id) {
+
+    $.ajax({
+        cache: true,
+        type: "POST",
+        url: "/social/getPraiseUserList",
+        data: {"lid": live_id},
+        success: function (data) {
+            if (data.rlt == true) {
+
+                var puLength = data.pu_length;
+
+                var puData = data.pu_data;
+
+                html_str = '';
+
+                html_str = html_str + '<p><span class="text-emphasize">' + puLength + '</span> 人点了赞</p>' +
+                    '<div class="fans-list">';
+                for (var i = 0; i < puLength; i++) {
+
+                    html_str = html_str + '<a class="avatar" href="/user/' + puData[i].user_sequence + '"><img src="' + puData[i].pavatar + '" height="52px" width="52px"></a>';
+                }
+
+                html_str = html_str + '<div class="clearfix"></div>' +
+                    '</div>';
+
+                $("#praiseUserList").html(html_str);
+
+            } else {
+                $("#praiseUserList").html('');
+            }
+        }
+    });
+}

@@ -1,0 +1,65 @@
+/* ::::: https://passport.iriding.cc/static/css/public.css ::::: */
+
+* { margin: 0px; padding: 0px; }
+html {  }
+a { text-decoration: none; font-family: ubuntu,helvetica,arial; color: rgb(95, 95, 95); }
+body { background: white none repeat scroll 0% 0%; color: rgb(95, 95, 95); font-size: 62.5%; font-family: ubuntu,helvetica,arial; }
+a, body { font-family: "微软雅黑"; }
+img { border: 0px none; }
+ol, ul, li { list-style: outside none none; }
+dl, dt, dd, ul, li { margin: 0px; padding: 0px; }
+input, textarea { outline: 0px none; }
+input[type="button"], input[type="text"], input[type="password"] { outline: medium none; }
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 { -moz-text-size-adjust: none; font-weight: normal; }
+input, select, textarea { font-family: "arial","微软雅黑"; }
+.clearfix::after { content: "​"; display: block; height: 0px; clear: both; }
+.clearfix {  }
+.fr { float: right; }
+.fl { float: left; }
+/* ::::: https://passport.iriding.cc/static/css/basic.css ::::: */
+
+body { color: rgb(51, 51, 51); text-align: center; background-color: rgb(255, 255, 255); min-width: 1220px; }
+header { background-color: rgb(26, 26, 26); min-width: 1220px; }
+header .header-honor { position: relative; height: 80px; width: 1220px; margin: 0px auto; }
+header .header-honor .honor-logo { position: absolute; top: 14px; left: 30px; }
+footer { background-color: rgb(255, 255, 255); width: 100%; }
+.footer-er { background-color: rgb(0, 0, 0); }
+footer .footer-dex { width: 100%; background-color: rgb(0, 0, 0); min-width: 1220px; margin: 0px auto; position: absolute; bottom: 0px; left: 0px; right: 0px; }
+footer .footer-p { text-align: right; width: 1220px; }
+footer .footer-p p { color: rgb(171, 171, 171); line-height: 50px; font-size: 12px; margin-right: 50px; }
+.login-main { width: 1220px; margin: 0px auto; padding: 0px 50px; box-sizing: border-box; }
+.login-main h2 { font-size: 22px; text-align: left; font-weight: 500; margin-top: 30px; border-bottom: 1px solid rgb(210, 210, 210); padding-bottom: 15px; }
+.login-detail { width: 332px; margin-left: 200px; }
+.login-detail p { border: 1px solid rgb(151, 151, 151); width: 332px; height: 40px; border-radius: 5px; margin-top: 20px; padding-left: 60px; box-sizing: border-box; position: relative; }
+.login-detail p i { display: inline-block; position: absolute; top: 50%; left: 20px; margin-top: -5px; }
+.login-detail p input { border: medium none; outline: medium none; width: 100%; height: 38px; font-size: 14px; line-height: 38px; border-radius: 5px; }
+.login-select { margin: 10px 0px 20px; height: 30px; text-align: center; }
+.login-select a { display: inline-block; float: right; color: rgb(95, 95, 95); line-height: 30px; font-size: 14px; }
+.login-str a { display: block; width: 100%; background-color: rgb(255, 218, 0); height: 46px; border-radius: 5px; color: rgb(51, 51, 51); line-height: 46px; font-size: 16px; margin-top: 20px; }
+.login-more { margin-top: 50px; position: relative; min-height: 500px; }
+.login-left { width: 332px; }
+.login-left .left-dec { margin-left: 0px; }
+.more-login { margin-top: 20px; text-align: left; }
+.more-login label { font-size: 14px; color: rgb(125, 125, 125); line-height: 25px; }
+.more-login ul li { float: left; width: 30px; height: 25px; border-left: 1px solid rgb(234, 234, 234); padding: 0px 5px; }
+.more-login ul li a { display: inline-block; width: 30px; height: 25px; }
+/*.more-login ul li a.a1 { background: transparent url('font-weixin.png') no-repeat scroll center center; }
+.more-login ul li a.a2 { background: transparent url('font-xinlang.png') no-repeat scroll center center; }
+.more-login ul li a.a3 { background: transparent url('font-qq.png') no-repeat scroll center center; }
+.more-login ul li a.a4 { background: transparent url('font-tengxunweibo.png') no-repeat scroll center center; }
+.more-login ul li a.a5 { background: transparent url('font-mi.png') no-repeat scroll center center; }
+.more-login ul li a.a1:hover { background: transparent url('font-weixin@20copy@202.png') no-repeat scroll center center; }
+.more-login ul li a.a2:hover { background: transparent url('font-xinlang@20copy@202.png') no-repeat scroll center center; }
+.more-login ul li a.a3:hover { background: transparent url('font-qq@20copy@202.png') no-repeat scroll center center; }
+.more-login ul li a.a4:hover { background: transparent url('font-tengxunweibo@20copy.png') no-repeat scroll center center; }*/
+/*.more-login ul li a.a5:hover { background: transparent url('font-mi@20copy@202.png') no-repeat scroll center center; }*/
+.login-right { width: 332px; position: absolute; right: 0px; top: 20px; }
+.login-right h4 { color: rgb(109, 109, 109); font-size: 20px; margin-bottom: 30px; text-align: left; }
+.login-right p { color: rgb(143, 143, 143); font-size: 14px; margin-bottom: 60px; text-align: left; }
+.login-right a { color: rgb(51, 51, 51); font-size: 22px; line-height: 46px; display: inline-block; width: 100%; background-color: rgb(255, 218, 0); border-radius: 5px; }
+.zhi { position: absolute; top: 0px; left: 50%; width: 2px; height: 340px; background-color: rgb(216, 216, 216); }
+.register-data { width: 332px; margin: 20px auto 50px; position: relative; }
+.register-data p { background-color: rgb(255, 255, 255); border: 1px solid rgb(151, 151, 151); width: 332px; height: 40px; border-radius: 5px; margin-top: 20px; padding-left: 50px; box-sizing: border-box; position: relative; }
+.register-data p i { display: inline-block; position: absolute; top: 50%; left: 20px; margin-top: -5px; }
+.register-data p input { border: medium none; outline: medium none; width: 100%; height: 38px; font-size: 14px; line-height: 38px; border-radius: 5px; display: inline-block; }
+.register-data p label { position: absolute; width: 100%; height: 40px; line-height: 40px; font-size: 14px; color: red; display: none; top: 0px; left: 50px; text-align: left; z-index: 1; cursor: text; }

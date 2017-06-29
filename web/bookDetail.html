@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">   
+    <title>逸学-书籍</title>
+    <link rel="shortcut icon" href="img/faviconv2.ico" type="image/x-icon">
+    <link rel="icon" href="img/faviconv2.ico" type="image/x-icon">
+    <meta charset="utf-8">    
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/zm-qiji.js"></script>  
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+//          hm.src = "//hm.baidu.com/hm.js?82fc0233449ae435746db2fa038196bb";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        //#############################
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'c831f3f148814099a87c86bd3aff59f9']);
+            
+                _vds.push(['setCS1', 'UserId', 'yZ16SlrYWRFu']);
+                _vds.push(['setCS2', 'UserName', '陈喵喵dBVsvorc']);
+            
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+//              vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds-gr.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+        //#############################
+    </script>
+
+<link media="all" href="css/newfile.css" type="text/css" rel="stylesheet">
+</head>
+<body id="zm-new">
+    <div id="zm-header" style="height: 100px;">
+        <div class="zm-artboard-head clearfix">
+            <p class="artboard-logo"><a href="#" style="padding: 16px 0px 0px;"><img src="img/logo.png" style="width: 122px; height: 58px;"></a></p>
+            <ul class="zm-nav zm-wes">
+                <li style="padding: 40px 42px 44px;"><a href="index.jsp" class=""><span>首页</span></a></li>
+
+                <li style="padding: 40px 42px 44px;"><a href="forum.jsp" class=""><span>论坛</span></a></li>
+                <li style="padding: 40px 42px 44px;"><a href="book.jsp" class=""><span>好书分享</span></a></li>
+                <li style="padding: 40px 42px 44px;"><a href="join.jsp" class=""><span>俱乐部</span></a></li>
+                <li style="padding: 40px 42px 44px;"><a href="#" class=""><span>联系我们</span></a></li>
+            </ul>
+            
+               <ul class="artboard-right zm-nav">
+                <li class="clearfix" style="padding: 35px 0px 43px;">
+                   <div class="zm-search-div none">
+                        <input id="txtBarKeyword" onkeydown="EnterPressSearch()" placeholder="请输入搜索关键词" maxlength="15" value="" type="text">
+                        <a id="btnSearchUser" href="javascript:void(0);" class="zm-search-btn"><span><img class="gray" src="img/zm-search@2x.png"></span></a>
+                    </div>
+                    <a href="javascript:void(0);" class="cur zm-search-show"><span><img src="img/zm-search@2x.png"></span></a>
+                    <span class="zm-help none">搜索</span>
+                </li>
+                    <li class="user" id="zm-user" style="padding: 35px 0px 43px;">
+                        <a class="zm-personImg" href="#"><span><img src="img/default_avatar.jpg" style="padding: 0px; margin-top: 4px;"></span></a>
+
+                        <ul class="user-data" style="top: 98px;">            
+                            <li style="padding: 0px;"><a href="#" onclick="sessionStorage.setItem('TAB', 0);">个人设置</a></li>
+                            <li style="padding: 0px;"><a href="#">我的关系</a></li>
+                            <li style="padding: 0px;"><a href="#">退出登录</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="user-news" id="user-news" style="padding: 35px 0px 43px;">
+                <a href="#"><span><img class="news-data" src="img/zm-xiaoxi.png"></span></a>
+                <span class="zm-help none" id="news">消息</span>
+                 <div class="news-content none" style="top: 98px;">
+                    <div class="clearfix">
+                          <ul class="clearfix">
+                                <li class="hand current" style="padding: 0px;"><span>通知<i id="aSystemNotice" class=""></i></span></li>
+                        <li class="hand" style="padding: 0px;"><span>动态<i id="aNotification" class=""></i></span></li>
+                        <li class="hand" style="padding: 0px;"><span>私信<i id="aDirectMessage" class=""></i></span></li>
+                            </ul>
+                            <div id="zs-content">
+                                <div class="mt">
+                                    <ul class="zm-mt-content" id="divSystemNotice">
+
+                                    </ul>
+                                </div>
+                                <div class="mt" style="display: none;">
+                                    <ul class="zm-mt-content" id="divNotification">
+
+                                    </ul>
+                                </div>
+                                <div class="mt" style="display: none;">
+                                    <ul class="zm-mt-content" id="divDirectMessage">
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="news-more"><a href="#">查看更多</a></div>
+                    </div>
+                        </div>
+                    </li>
+
+                   <li style="padding: 35px 0px 43px;">
+                        <a href="#"><span><img src="img/zm-help@2x.png"></span></a>
+                            <span class="zm-help none">帮助</span>
+                    </li>
+                    
+        </ul></div>
+    </div>
+
+
+    <script language="javascript">
+        function show_float_login() {
+            reqhref = window.location.href;
+            reqhost = window.location.host;
+            index = reqhref.indexOf(reqhost)
+            requrl = reqhref.substr(index + reqhost.length, reqhref.length)
+
+            homePageFlage = document.getElementById("isHomepageFlag")
+            homePage = homePageFlage != null ? true : false;
+
+            if (homePage || (!homePage )) {
+
+                //$(".block-login-outer").fadeIn();
+                $.fancybox.open({
+                    maxWidth: 500,
+                    fitToView: false,
+                    width: '500',
+                    autoSize: false,
+                    autoHeight: true,
+                    autoCenter: false,
+                    type: 'ajax',
+                    href: "/account/show_float_login?back=" + escape(requrl),
+                    closeBtn: true,
+                    openEffect: 'none',
+                    closeEffect: 'none',
+                    wrapCSS: 'fancybox-wrap-empty fancybox-wrap-empty-2'
+                });
+            }
+            else {
+                $(".block-login").fadeIn(function () {
+
+                });
+            }
+        }
+
+    </script>
+
+    <input style="display: none;" id="detail" value="1">
+    <div style="box-shadow: none;height: 70px;">
+    	<p style="height: 70px;line-height: 70px;font-size: 16px;margin-left: 75px;">好书分享 &gt;&gt; 《二手时间》</p>
+    </div>
+    <div class="zm-container-w clearfix" style="margin-top: 5px;">
+        <div class="zm-act-ctx zm-act-subctx">
+            <ul class="zm-act-ul">
+                <li class="clearfix"> 
+                	<div class="zm-act-img fl" style="background: transparent url('img/book1.jpg') no-repeat scroll center center / cover ;"></div>
+                    <div class="zm-act-txt fr">
+                        <p class="zm-act-title" style="margin-top: 50px;">
+                            <span>《二手时间》</span>             
+                        </p>
+                        <p style="margin-top: 30px;">作者：S·A·阿列克谢耶维奇 [俄罗斯]</p>
+                        <p style="margin-top: 20px;">体裁：纪实文学</p>
+                        <p style="margin-top: 20px;">首版时间：2013年</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="zm-Challenge-ranking clearfix">
+                <!--挑战介绍-->
+                <div class="zm-Challenge fl" style="padding-top: 20px;">
+                    <p class="zm-swiper-title"><span>内容简介</span></p>
+                    <div>
+                    	<p style="margin-left: 20px;margin-right:30px;font-size: 18px;text-indent: 2em;">该书分为上下两部分，采访了生长于理想之下的俄罗斯人和今天的俄罗斯人，以及阿塞拜疆等前苏联国家的普通人，呈现他们的生活细节，所感所想。</p>
+                    	<p style="margin-left: 20px;margin-right:30px;font-size: 18px;text-indent: 2em;">
+                    		《二手时间》通过口述采访的形式，讲述了苏联解体后，1991年到2012年二十年间的痛苦的社会转型中，身处关键历史时刻的普通人的生活，以及他们为梦想破碎付出的代价。在书中，从学者到清洁工，每个人都在重新寻找生活的意义。他们的真实讲述同时从宏观和微观上呈现出一个重大的时代，一个社会的变动，为这一段影响深远的历史赋予了人性的面孔。
+                    	</p>
+
+                    </div>
+                    <p class="zm-swiper-title"><span>创作背景</span></p>
+                    <div>
+                    	<p style="margin-left: 30px;margin-right:30px;font-size: 18px;text-indent: 2em;">
+                    		苏联解体已逾二十年，俄罗斯人重新发现了世界，世界也重新认识了俄罗斯。新一代已经成长起来，他们的梦想已不再关乎梦想，不再像20世纪90年代他们的父辈，关心信仰。二十年来，人们看了崭新的俄罗斯，但她却早已不是任何人曾经梦想过的俄罗斯了。作者追溯了苏联和苏联解体之后的历史过程，让普通的小人物讲述他们自己的故事，从而展现出身处历史的转折，以及人们如何追寻信仰、梦想，如何诉说秘密和恐惧，让人们重新思考什么是“俄罗斯”和“俄罗斯人”，为什么他们无法适应急剧的现代化，为什么再近两百年之后，依然与欧洲相隔。
+                    	</p>
+                    </div>
+                    <p class="zm-swiper-title"><span>作品影响</span></p>
+                    <div>
+                    	<p style="margin-left: 20px;margin-right:30px;font-size: 18px;text-indent: 2em;">
+                    		发表后荣获德国书业和平奖（2013）、法国美第契散文奖（2013）、俄罗斯「大书奖」读者票选最佳文学作品（2014）、波兰卡普钦斯基报告文学奖（2015）、入围英国非虚构写作大奖、 获得第二届书店文学奖年度书籍。
+                    	</p>
+                    	
+                    </div>
+               </div>
+                <div class="zm-ranking fr">
+                    <div class="zm-ranking-1">
+                        <div class="zm-ranking-ctx">
+                            <p class="zm-ranking-ck">
+                                <span class="zm-ranking-on">更多好书</span>                                
+                            </p>
+                            <div>                              
+                                <ul>                                                                                   
+                <li><span><img src="img/book-2.jpg" width="40px" height="40px" style="margin-left:30px;border-radius: 80%;">&nbsp;&nbsp;《极简宇宙史》</span></li>                                                                                                                                    
+                <li><span><img src="img/book-3.jpg" width="40px" height="40px" style="margin-left:30px;border-radius: 80%;">&nbsp;&nbsp;《无人生还》</span></li> 
+				<li><span><img src="img/book-4.jpg" width="40px" height="40px"style="margin-left:30px;border-radius: 80%;">&nbsp;&nbsp;《灯塔》</span></li>  
+                <li><span><img src="img/book-5.jpg" width="40px" height="40px" style="margin-left:30px;border-radius: 80%;">&nbsp;&nbsp;《活着为了讲述》</span></li>
+                <li><span><img src="img/book-6.jpg" width="40px" height="40px" style="margin-left:30px;border-radius: 80%;">&nbsp;&nbsp;《造房子》</span></li>
+                <li><span><img src="img/book-7.jpg" width="40px" height="40px" style="margin-left:30px;border-radius: 80%;">&nbsp;&nbsp;《北鸢》</span></li>
+                <li><span><img src="img/book-8.jpg" width="40px" height="40px" style="margin-left:30px;border-radius: 80%;">&nbsp;&nbsp;《斯通纳》</span></li>                                                                                                                                                                                                                                                                 
+                                </ul>                                                                                               
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--接受挑战弹框-->
+    <!--<div class="zm-act-layer none">
+        <div>
+            <p class="zm-act-close">
+                <img src="img/zm-act-layer-close@2x.png">
+            </p>
+
+        </div>
+    </div>-->
+    <script language="javascript" type="text/javascript">
+        challenge_id =38
+        rank =
+        follow_rank =
+        user_sequence = "yZ16SlrYWRFu"
+        $(document).ready(function () {
+
+            $(".zm-activityR span").click(function () {
+                $(".zm-activityR span").removeClass("zm-act-sort");
+                $(this).addClass("zm-act-sort");
+            });
+            if (user_sequence) {
+                $(".zm-act-subctx .zm-act-accept").click(function () {
+                    $(".zm-act-layer").fadeIn();
+
+                    $("body").css({"overflow": "hidden"});
+                });
+            }
+            $(".zm-act-close,.zm-act-down").click(function () {
+                $(".zm-act-layer").hide();
+                $("body").css({"overflow": "auto"});
+            });
+
+            $(".zm-search-show").click(function () {
+                $(this).hide();
+                $(this).siblings(".zm-help").hide();
+                $(".zm-search-div").fadeIn();
+                $(".zm-search-div input").css({"width": "280px"});
+            });
+
+        });
+
+
+    </script>
+
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script>
+             user_sequence = "yZ16SlrYWRFu"
+             challenge_id =38
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 5,
+            paginationClickable: true,
+            spaceBetween: 30,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev'
+        });
+
+    </script>
+
+    <div id="zm-artboard-footer" style="position: static; left: auto; bottom: auto; right: auto;">
+        <div class="artboard-foot">
+            <div class="foot-content">
+                <div class="foot-lef">
+                    <ul class="clearfix">
+                        <li><a href="#" target="_top"><span>关于我们</span></a></li>
+                        <li><a href="#" target="_top"><span>联系我们</span></a></li>
+                        <li><a href="#" target="_top"><span>问题反馈</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="zm-widget-to-top widget-to-top-on" style="display: block; margin-left: 0px; left: auto; right: 20px;" id="zm-to-top">
+        <ul class="list-unstyled">
+            <li class="top" style="display: none;"><span id="toTop"></span></li>
+            <li class="qrcode" onmouseover="$(this).addClass('qrcode_on')" onmouseout="$(this).removeClass('qrcode_on')">
+                <a href="javascript:void(0)"></a>
+
+                <div class="drop-qrcode"></div>
+            </li>
+        </ul>
+    </div>
+
+<script>
+
+    var options = {
+        useEasing: true,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.',
+        prefix: '',
+        suffix: ''
+    };
+    $.ajax({
+        cache: true,
+        type: "GET",
+//      url: "/total_info",
+        success: function (data) {
+            if (data.success) {
+                var demo = new CountUp("myTargetElement", 0, data.TotalDistance, 0, 2.5, options);
+                $(window).scroll(function () {
+                    var a = $('#zm-header').height();
+                    var b = $('.zm-plate').height();
+                    var c = $('.zm-cell-left').height();
+                    var d = $('.zm-cell-right').height();
+                    var e = $(window).height();
+                    var s = a + b + c;
+                    var w = a + b + d;
+                    if ($(window).scrollTop() >= 800) {
+                        $('.top').fadeIn();
+                        if ($(window).scrollTop() >= (a + b + d + 30)) {
+                            $('#zm-tag').css({"position": "fixed", "top": "50px"});
+                        } else {
+                            $('#zm-tag').css({"position": "static"});
+                        }
+
+                    } else {
+                        $('.top').fadeOut();
+                    }
+                    if ($(window).scrollTop() >= (s - e + 110)) {
+                        demo.start();
+                    }
+                });
+                showNumber(data.TotalDistance);
+                if ($("#totalUserDistance")) {
+                    $("#totalUserDistance").html(data.TotalDistance + "<span style='font-size:20px'>km</span>");
+                }
+            }
+        }
+    });
+    $(document).ready(function () {
+        var offsetTop2 = $("#zm-artboard-footer").offset().top + 145;
+        window.addEventListener("resize", function () {
+            var winHeight = $(window).height();
+            if (offsetTop2 < winHeight) {
+                $("#zm-artboard-footer").css({"position": "absolute", "left": 0, "bottom": 0, "right": 0});
+            }
+            else {
+                $("#zm-artboard-footer").css({"position": "static", "left": "auto", "bottom": "auto", "right": "auto"});
+            }
+        });
+
+         $(".zm-search-show").click(function () {
+            $(this).hide();
+            $(this).siblings(".zm-help").hide();
+            $(".zm-search-div").fadeIn();
+            $(".zm-search-div input").css({"width":"280px"});
+        });
+    });
+
+        function gSearch() {
+
+            var keyword = $('#txtBarKeyword').val();
+            var $title = $.trim(keyword);
+            if ($title == '') {
+                window.location.href = "/search/results";
+            } else {
+                var type = "user";
+                window.location.href = "/search/results?type=" + type + "&keyword=" + keyword;
+            }
+        }
+
+         $(function () {
+            $('#btnSearchUser').click(function () {
+                gSearch();
+            });
+        })
+
+        function EnterPressSearch(e) { //传入 title
+            var e = e || window.event;
+            if (e.keyCode == 13) {
+                gSearch();
+            }
+        }
+</script>
+</body>
+</html>
